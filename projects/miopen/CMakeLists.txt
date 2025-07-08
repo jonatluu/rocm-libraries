@@ -88,7 +88,6 @@ include(ROCMSetupVersion)
 include(ROCMInstallSymlinks)
 include(ROCMCreatePackage)
 include(CheckCXXCompilerFlag)
-include(ROCMHeaderWrapper)
 
 include(cmake/ClangCheck.cmake)
 

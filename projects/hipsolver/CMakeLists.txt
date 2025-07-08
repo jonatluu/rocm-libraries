@@ -85,7 +85,6 @@ include(ROCMInstallTargets)
 include(ROCMPackageConfigHelpers)
 include(ROCMInstallSymlinks)
 include(ROCMClients)
-include(ROCMHeaderWrapper)
 
 set(VERSION_STRING "3.0.0")
 rocm_setup_version(VERSION ${VERSION_STRING})
