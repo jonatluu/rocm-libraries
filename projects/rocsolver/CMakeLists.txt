@@ -85,6 +85,7 @@ include(ROCMPackageConfigHelpers)
 include(ROCMInstallSymlinks)
 include(ROCMCheckTargetIds)
 include(ROCMClients)
+include(ROCMHeaderWrapper)
 
 include(os-detection)
 get_os_id(OS_ID)
