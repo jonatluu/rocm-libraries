@@ -386,9 +386,12 @@ if(HIPBLASLT_ENABLE_CLIENT)
         DESTINATION "${CMAKE_INSTALL_BINDIR}"
         COMPONENT clients-common
     )
+
+    set (PACKAGE_NAME "hipblaslt")
+    message("POTATO {CMAKE_INSTALL_DATAROOTDIR}/{PACKAGE_NAME}: ${CMAKE_INSTALL_DATAROOTDIR}/${PACKAGE_NAME}")
     rocm_install(
         FILES "${CMAKE_CURRENT_SOURCE_DIR}/clients/bench/sequence.yaml"
-        DESTINATION "${CMAKE_INSTALL_BINDIR}"
+        DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${PACKAGE_NAME}"
         COMPONENT benchmarks
     )
 
