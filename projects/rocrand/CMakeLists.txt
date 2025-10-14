@@ -247,12 +247,9 @@ set(PKG_MAINTAINER_EMAIL  "hiprand-maintainer@amd.com")
  rocm_create_package(
      NAME ${package_name}
      DESCRIPTION "rocRAND is a ROCm random number generation library"
-     MAINTAINER "rocRAND Maintainer <hiprand-maintainer@amd.com>"
      MAINTAINER "${PKG_MAINTAINER_NM} <${PKG_MAINTAINER_EMAIL}>"
      LINTIAN_OVERRIDES ${BUILD_ENABLE_LINTIAN_OVERRIDES}
      DEBIAN_PKGING ${BUILD_DEBIAN_PKGING_FLAG}
-     MAINTAINER_NM ${PKG_MAINTAINER_NM}
-     MAINTAINER_EMAIL ${PKG_MAINTAINER_EMAIL}
      LDCONFIG
      # LDCONFIG_DIR ${ROCRAND_CONFIG_DIR}
  )
