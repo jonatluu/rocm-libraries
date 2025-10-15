@@ -243,6 +243,11 @@ set(ROCRAND_CONFIG_DIR "\${CPACK_PACKAGING_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDI
 
 set(PKG_MAINTAINER_NM  "rocRAND Maintainer")
 set(PKG_MAINTAINER_EMAIL  "hiprand-maintainer@amd.com")
+set(PACKAGE_TYPE "")
+find_file (DEBIAN debian_version debconf.conf PATHS /etc)
+if(DEBIAN)
+	set(PACKAGE_TYPE "DEBIAN")
+endif()
 
  rocm_create_package(
      NAME ${package_name}
@@ -250,6 +255,7 @@ set(PKG_MAINTAINER_EMAIL  "hiprand-maintainer@amd.com")
      MAINTAINER "${PKG_MAINTAINER_NM} <${PKG_MAINTAINER_EMAIL}>"
      LINTIAN_OVERRIDES ${BUILD_ENABLE_LINTIAN_OVERRIDES}
      DEBIAN_PKGING ${BUILD_DEBIAN_PKGING_FLAG}
+     PKG_TYPE ${PACKAGE_TYPE}
      LDCONFIG
      # LDCONFIG_DIR ${ROCRAND_CONFIG_DIR}
  )
