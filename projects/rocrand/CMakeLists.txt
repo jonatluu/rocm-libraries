@@ -23,10 +23,6 @@
 cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 cmake_policy(VERSION 3.16...3.25)
 
-set( BUILD_ENABLE_LINTIAN_OVERRIDES ON CACHE BOOL "Enable/Disable Lintian Overrides" )
-set( BUILD_DEBIAN_PKGING_FLAG ON CACHE BOOL "Internal Status Flag to indicate Debian Packaging Build" )
-
-
 # Build options
 include(CMakeDependentOption)
 
@@ -241,8 +237,6 @@ endif()
 
 set(ROCRAND_CONFIG_DIR "\${CPACK_PACKAGING_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}" CACHE PATH "Path placed into ldconfig file")
 
-set(PKG_MAINTAINER_NM  "rocRAND Maintainer")
-set(PKG_MAINTAINER_EMAIL  "hiprand-maintainer@amd.com")
 set(PACKAGE_TYPE "")
 find_file (DEBIAN debian_version debconf.conf PATHS /etc)
 if(DEBIAN)
@@ -252,9 +246,7 @@ endif()
  rocm_create_package(
      NAME ${package_name}
      DESCRIPTION "rocRAND is a ROCm random number generation library"
-     MAINTAINER "${PKG_MAINTAINER_NM} <${PKG_MAINTAINER_EMAIL}>"
-     LINTIAN_OVERRIDES ${BUILD_ENABLE_LINTIAN_OVERRIDES}
-     DEBIAN_PKGING ${BUILD_DEBIAN_PKGING_FLAG}
+     MAINTAINER "rocRAND Maintainer <hiprand-maintainer@amd.com>"
      PKG_TYPE ${PACKAGE_TYPE}
      LDCONFIG
      # LDCONFIG_DIR ${ROCRAND_CONFIG_DIR}
