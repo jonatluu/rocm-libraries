@@ -237,17 +237,11 @@ endif()
 
 set(ROCRAND_CONFIG_DIR "\${CPACK_PACKAGING_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR}" CACHE PATH "Path placed into ldconfig file")
 
-set(PACKAGE_TYPE "")
-find_file (DEBIAN debian_version debconf.conf PATHS /etc)
-if(DEBIAN)
-	set(PACKAGE_TYPE "DEBIAN")
-endif()
 
  rocm_create_package(
      NAME ${package_name}
      DESCRIPTION "rocRAND is a ROCm random number generation library"
      MAINTAINER "rocRAND Maintainer <hiprand-maintainer@amd.com>"
-     PKG_TYPE ${PACKAGE_TYPE}
      LDCONFIG
      # LDCONFIG_DIR ${ROCRAND_CONFIG_DIR}
  )
